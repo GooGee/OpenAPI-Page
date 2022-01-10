@@ -1,0 +1,2201 @@
+{
+    "version": 2,
+    "flowManager": {
+        "nextUI": 6,
+        "list": [
+            {
+                "ui": 1,
+                "un": "get /path",
+                "color": "",
+                "description": "",
+                "unPattern": "/${schema.snakeCase}",
+                "suffix": "",
+                "operation": {
+                    "ui": 1,
+                    "un": "get",
+                    "withRequestBody": false,
+                    "withSecurity": false,
+                    "parameterManager": {
+                        "nextUI": 1,
+                        "list": []
+                    },
+                    "requestBody": {
+                        "ui": 0,
+                        "un": "",
+                        "useExisted": false,
+                        "mtManager": {
+                            "nextUI": 1,
+                            "list": []
+                        },
+                        "reference": {
+                            "ui": 0,
+                            "type": "requestBodies"
+                        },
+                        "schema": {
+                            "ui": 0,
+                            "un": "",
+                            "script": {
+                                "ui": 0,
+                                "type": "script"
+                            }
+                        }
+                    },
+                    "security": {
+                        "ui": 0,
+                        "un": "${schema.un}",
+                        "type": "security",
+                        "oAuthFlowManager": {
+                            "nextUI": 1,
+                            "list": []
+                        },
+                        "scopeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "list:${schema.un}",
+                                    "type": "scope"
+                                }
+                            ]
+                        }
+                    },
+                    "statusManager": {
+                        "nextUI": 2,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "200",
+                                "unPattern": "${schema.un}_${operation.un + path.suffix}",
+                                "useExisted": false,
+                                "mtManager": {
+                                    "nextUI": 2,
+                                    "list": [
+                                        {
+                                            "ui": 1,
+                                            "un": "application/json"
+                                        }
+                                    ]
+                                },
+                                "reference": {
+                                    "ui": 0,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "${schema.un}_Response_${operation.un + path.suffix}",
+                                    "script": {
+                                        "ui": 21,
+                                        "type": "script"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "tagManager": {
+                        "nextUI": 2,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "${schema.un}",
+                                "type": "tag"
+                            }
+                        ]
+                    }
+                },
+                "parameterManager": {
+                    "nextUI": 1,
+                    "list": []
+                }
+            },
+            {
+                "ui": 2,
+                "un": "post /path",
+                "color": "",
+                "description": "",
+                "unPattern": "/${schema.snakeCase}",
+                "suffix": "",
+                "operation": {
+                    "ui": 1,
+                    "un": "post",
+                    "withRequestBody": true,
+                    "withSecurity": false,
+                    "parameterManager": {
+                        "nextUI": 1,
+                        "list": []
+                    },
+                    "requestBody": {
+                        "ui": 0,
+                        "un": "${schema.un}_${operation.un + path.suffix}",
+                        "useExisted": false,
+                        "mtManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "application/json"
+                                }
+                            ]
+                        },
+                        "reference": {
+                            "ui": 0,
+                            "type": "requestBodies"
+                        },
+                        "schema": {
+                            "ui": 0,
+                            "un": "${schema.un}_Request_${operation.un + path.suffix}",
+                            "script": {
+                                "ui": 12,
+                                "type": "script"
+                            }
+                        }
+                    },
+                    "security": {
+                        "ui": 0,
+                        "un": "${schema.un}",
+                        "type": "security",
+                        "oAuthFlowManager": {
+                            "nextUI": 1,
+                            "list": []
+                        },
+                        "scopeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "create:${schema.un}",
+                                    "type": "scope"
+                                }
+                            ]
+                        }
+                    },
+                    "statusManager": {
+                        "nextUI": 5,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "200",
+                                "unPattern": "${schema.un}_${operation.un + path.suffix}",
+                                "useExisted": false,
+                                "mtManager": {
+                                    "nextUI": 2,
+                                    "list": [
+                                        {
+                                            "ui": 1,
+                                            "un": "application/json"
+                                        }
+                                    ]
+                                },
+                                "reference": {
+                                    "ui": 0,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "${schema.un}_Response_${operation.un + path.suffix}",
+                                    "script": {
+                                        "ui": 22,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 2,
+                                "un": "400",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 2,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 3,
+                                "un": "401",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 3,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 4,
+                                "un": "403",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 4,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "tagManager": {
+                        "nextUI": 2,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "${schema.un}",
+                                "type": "tag"
+                            }
+                        ]
+                    }
+                },
+                "parameterManager": {
+                    "nextUI": 1,
+                    "list": []
+                }
+            },
+            {
+                "ui": 3,
+                "un": "delete /path/{id}",
+                "color": "",
+                "description": "",
+                "unPattern": "/${schema.snakeCase}/{id}",
+                "suffix": "_1",
+                "operation": {
+                    "ui": 1,
+                    "un": "delete",
+                    "withRequestBody": false,
+                    "withSecurity": false,
+                    "parameterManager": {
+                        "nextUI": 1,
+                        "list": []
+                    },
+                    "requestBody": {
+                        "ui": 0,
+                        "un": "",
+                        "useExisted": false,
+                        "mtManager": {
+                            "nextUI": 1,
+                            "list": []
+                        },
+                        "reference": {
+                            "ui": 0,
+                            "type": "requestBodies"
+                        },
+                        "schema": {
+                            "ui": 0,
+                            "un": "",
+                            "script": {
+                                "ui": 0,
+                                "type": "script"
+                            }
+                        }
+                    },
+                    "security": {
+                        "ui": 0,
+                        "un": "${schema.un}",
+                        "type": "security",
+                        "oAuthFlowManager": {
+                            "nextUI": 1,
+                            "list": []
+                        },
+                        "scopeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "delete:${schema.un}",
+                                    "type": "scope"
+                                }
+                            ]
+                        }
+                    },
+                    "statusManager": {
+                        "nextUI": 6,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "200",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 1,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 2,
+                                "un": "400",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 2,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 3,
+                                "un": "401",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 3,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 4,
+                                "un": "403",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 4,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 5,
+                                "un": "404",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 5,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "tagManager": {
+                        "nextUI": 2,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "${schema.un}",
+                                "type": "tag"
+                            }
+                        ]
+                    }
+                },
+                "parameterManager": {
+                    "nextUI": 2,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "id",
+                            "type": "parameters"
+                        }
+                    ]
+                }
+            },
+            {
+                "ui": 4,
+                "un": "get /path/{id}",
+                "color": "",
+                "description": "",
+                "unPattern": "/${schema.snakeCase}/{id}",
+                "suffix": "_1",
+                "operation": {
+                    "ui": 1,
+                    "un": "get",
+                    "withRequestBody": false,
+                    "withSecurity": false,
+                    "parameterManager": {
+                        "nextUI": 1,
+                        "list": []
+                    },
+                    "requestBody": {
+                        "ui": 0,
+                        "un": "",
+                        "useExisted": false,
+                        "mtManager": {
+                            "nextUI": 1,
+                            "list": []
+                        },
+                        "reference": {
+                            "ui": 0,
+                            "type": "requestBodies"
+                        },
+                        "schema": {
+                            "ui": 0,
+                            "un": "",
+                            "script": {
+                                "ui": 0,
+                                "type": "script"
+                            }
+                        }
+                    },
+                    "security": {
+                        "ui": 0,
+                        "un": "${schema.un}",
+                        "type": "security",
+                        "oAuthFlowManager": {
+                            "nextUI": 1,
+                            "list": []
+                        },
+                        "scopeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "read:${schema.un}",
+                                    "type": "scope"
+                                }
+                            ]
+                        }
+                    },
+                    "statusManager": {
+                        "nextUI": 3,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "200",
+                                "unPattern": "${schema.un}_${operation.un + path.suffix}",
+                                "useExisted": false,
+                                "mtManager": {
+                                    "nextUI": 2,
+                                    "list": [
+                                        {
+                                            "ui": 1,
+                                            "un": "application/json"
+                                        }
+                                    ]
+                                },
+                                "reference": {
+                                    "ui": 0,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "${schema.un}_Response_${operation.un + path.suffix}",
+                                    "script": {
+                                        "ui": 26,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 2,
+                                "un": "404",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 5,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "tagManager": {
+                        "nextUI": 2,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "${schema.un}",
+                                "type": "tag"
+                            }
+                        ]
+                    }
+                },
+                "parameterManager": {
+                    "nextUI": 2,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "id",
+                            "type": "parameters"
+                        }
+                    ]
+                }
+            },
+            {
+                "ui": 5,
+                "un": "patch /path/{id}",
+                "color": "",
+                "description": "",
+                "unPattern": "/${schema.snakeCase}/{id}",
+                "suffix": "_1",
+                "operation": {
+                    "ui": 1,
+                    "un": "patch",
+                    "withRequestBody": true,
+                    "withSecurity": false,
+                    "parameterManager": {
+                        "nextUI": 1,
+                        "list": []
+                    },
+                    "requestBody": {
+                        "ui": 0,
+                        "un": "${schema.un}_${operation.un + path.suffix}",
+                        "useExisted": false,
+                        "mtManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "application/json"
+                                }
+                            ]
+                        },
+                        "reference": {
+                            "ui": 0,
+                            "type": "requestBodies"
+                        },
+                        "schema": {
+                            "ui": 0,
+                            "un": "${schema.un}_Request_${operation.un + path.suffix}",
+                            "script": {
+                                "ui": 17,
+                                "type": "script"
+                            }
+                        }
+                    },
+                    "security": {
+                        "ui": 0,
+                        "un": "${schema.un}",
+                        "type": "security",
+                        "oAuthFlowManager": {
+                            "nextUI": 1,
+                            "list": []
+                        },
+                        "scopeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "write:${schema.un}",
+                                    "type": "scope"
+                                }
+                            ]
+                        }
+                    },
+                    "statusManager": {
+                        "nextUI": 6,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "200",
+                                "unPattern": "${schema.un}_${operation.un + path.suffix}",
+                                "useExisted": false,
+                                "mtManager": {
+                                    "nextUI": 2,
+                                    "list": [
+                                        {
+                                            "ui": 1,
+                                            "un": "application/json"
+                                        }
+                                    ]
+                                },
+                                "reference": {
+                                    "ui": 0,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "${schema.un}_Response_${operation.un + path.suffix}",
+                                    "script": {
+                                        "ui": 27,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 2,
+                                "un": "400",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 2,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 3,
+                                "un": "401",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 3,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 4,
+                                "un": "403",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 4,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            },
+                            {
+                                "ui": 5,
+                                "un": "404",
+                                "unPattern": "",
+                                "useExisted": true,
+                                "mtManager": {
+                                    "nextUI": 1,
+                                    "list": []
+                                },
+                                "reference": {
+                                    "ui": 5,
+                                    "type": "responses"
+                                },
+                                "schema": {
+                                    "ui": 0,
+                                    "un": "",
+                                    "script": {
+                                        "ui": 0,
+                                        "type": "script"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "tagManager": {
+                        "nextUI": 2,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "${schema.un}",
+                                "type": "tag"
+                            }
+                        ]
+                    }
+                },
+                "parameterManager": {
+                    "nextUI": 2,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "id",
+                            "type": "parameters"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "presetManager": {
+        "nextUI": 8,
+        "list": [
+            {
+                "ui": 1,
+                "un": "ContentType",
+                "color": "",
+                "description": "ContentType of Encodeing",
+                "version": 1,
+                "propertyManager": {
+                    "nextUI": 13,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "application/javascript",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 2,
+                            "un": "application/json",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 3,
+                            "un": "application/octet-stream",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 4,
+                            "un": "application/pdf",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 5,
+                            "un": "application/xml",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 6,
+                            "un": "application/zip",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 7,
+                            "un": "image/*",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 8,
+                            "un": "text/css",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 9,
+                            "un": "text/csv",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 10,
+                            "un": "text/html",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 11,
+                            "un": "text/plain",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 12,
+                            "un": "text/xml",
+                            "tag": "",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "ui": 2,
+                "un": "DataFormat",
+                "color": "",
+                "description": "format of Schema field",
+                "version": 1,
+                "propertyManager": {
+                    "nextUI": 10,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "int32",
+                            "tag": "integer",
+                            "value": ""
+                        },
+                        {
+                            "ui": 2,
+                            "un": "int64",
+                            "tag": "integer",
+                            "value": ""
+                        },
+                        {
+                            "ui": 3,
+                            "un": "float",
+                            "tag": "number",
+                            "value": ""
+                        },
+                        {
+                            "ui": 4,
+                            "un": "double",
+                            "tag": "number",
+                            "value": ""
+                        },
+                        {
+                            "ui": 5,
+                            "un": "byte",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 6,
+                            "un": "binary",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 7,
+                            "un": "date",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 8,
+                            "un": "date-time",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 9,
+                            "un": "password",
+                            "tag": "string",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "ui": 3,
+                "un": "FieldName",
+                "color": "",
+                "description": "commonly used names",
+                "version": 1,
+                "propertyManager": {
+                    "nextUI": 23,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "id",
+                            "tag": "integer",
+                            "value": ""
+                        },
+                        {
+                            "ui": 2,
+                            "un": "content",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 3,
+                            "un": "date",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 4,
+                            "un": "datetime",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 5,
+                            "un": "email",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 6,
+                            "un": "image",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 7,
+                            "un": "link",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 8,
+                            "un": "message",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 9,
+                            "un": "name",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 10,
+                            "un": "parent_id",
+                            "tag": "integer",
+                            "value": ""
+                        },
+                        {
+                            "ui": 11,
+                            "un": "password",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 12,
+                            "un": "phone",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 13,
+                            "un": "sort",
+                            "tag": "integer",
+                            "value": ""
+                        },
+                        {
+                            "ui": 14,
+                            "un": "status",
+                            "tag": "integer",
+                            "value": ""
+                        },
+                        {
+                            "ui": 15,
+                            "un": "text",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 16,
+                            "un": "time",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 17,
+                            "un": "title",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 18,
+                            "un": "type",
+                            "tag": "integer",
+                            "value": ""
+                        },
+                        {
+                            "ui": 19,
+                            "un": "uri",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 20,
+                            "un": "url",
+                            "tag": "string",
+                            "value": ""
+                        },
+                        {
+                            "ui": 21,
+                            "un": "user_id",
+                            "tag": "integer",
+                            "value": ""
+                        },
+                        {
+                            "ui": 22,
+                            "un": "uuid",
+                            "tag": "string",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "ui": 4,
+                "un": "HttpStatus",
+                "color": "",
+                "description": "",
+                "version": 1,
+                "propertyManager": {
+                    "nextUI": 9,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "200",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 2,
+                            "un": "301",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 3,
+                            "un": "302",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 4,
+                            "un": "400",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 5,
+                            "un": "401",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 6,
+                            "un": "403",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 7,
+                            "un": "404",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 8,
+                            "un": "405",
+                            "tag": "",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "ui": 5,
+                "un": "MediaType",
+                "color": "",
+                "description": "MediaType of RequestBody / Response",
+                "version": 1,
+                "propertyManager": {
+                    "nextUI": 6,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "application/json",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 2,
+                            "un": "application/xml",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 3,
+                            "un": "multipart/form-data",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 4,
+                            "un": "text/plain",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 5,
+                            "un": "*/*",
+                            "tag": "",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "ui": 6,
+                "un": "RequestBodyExcludeField",
+                "color": "",
+                "description": "field names will be excluded in RequestBody",
+                "version": 1,
+                "propertyManager": {
+                    "nextUI": 3,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "id",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 2,
+                            "un": "user_id",
+                            "tag": "",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            {
+                "ui": 7,
+                "un": "SchemaProperty",
+                "color": "",
+                "description": "",
+                "version": 1,
+                "propertyManager": {
+                    "nextUI": 18,
+                    "list": [
+                        {
+                            "ui": 1,
+                            "un": "title",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 2,
+                            "un": "maximum",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 3,
+                            "un": "exclusiveMaximum",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 4,
+                            "un": "minimum",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 5,
+                            "un": "exclusiveMinimum",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 6,
+                            "un": "maxLength",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 7,
+                            "un": "minLength",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 8,
+                            "un": "pattern",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 9,
+                            "un": "maxItems",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 10,
+                            "un": "minItems",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 11,
+                            "un": "uniqueItems",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 12,
+                            "un": "maxProperties",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 13,
+                            "un": "minProperties",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 14,
+                            "un": "enum",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 15,
+                            "un": "not",
+                            "tag": "",
+                            "value": ""
+                        },
+                        {
+                            "ui": 16,
+                            "un": "nullable",
+                            "tag": "",
+                            "value": "true"
+                        },
+                        {
+                            "ui": 17,
+                            "un": "deprecated",
+                            "tag": "",
+                            "value": "true"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "scriptManager": {
+        "nextUI": 100,
+        "list": [
+            {
+                "ui": 1,
+                "un": "make Tag",
+                "color": "",
+                "description": "e.g. User",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    dd.vendor.tagManager.findByUNOrMakeAdd(dd.schema.un)\n}",
+                "requireLayer": false,
+                "requireSchema": true
+            },
+            {
+                "ui": 2,
+                "un": "make Parameter",
+                "color": "",
+                "description": "e.g. user_id",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    dd.vendor.parameterManager.findByUNOrMakeAdd(dd.schema.snakeCase + '_id')\n}",
+                "requireLayer": false,
+                "requireSchema": true
+            },
+            {
+                "ui": 11,
+                "un": "make Schema of RequestBody get",
+                "color": "#f00",
+                "description": "Schema is used in RequestBody get",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.red\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 12,
+                "un": "make Schema of RequestBody post",
+                "color": "#f00",
+                "description": "Schema is used in RequestBody post",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.red\n    schema.compositionType = 'allOf'\n\n    schema.referenceManager.findOrMakeAdd(dd.schema.ui)\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 15,
+                "un": "make Schema of RequestBody delete",
+                "color": "#f00",
+                "description": "Schema is used in RequestBody delete",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.red\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 16,
+                "un": "make Schema of RequestBody get one",
+                "color": "#f00",
+                "description": "Schema is used in RequestBody get one",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.red\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 17,
+                "un": "make Schema of RequestBody patch",
+                "color": "#f00",
+                "description": "Schema is used in RequestBody patch",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.red\n    schema.compositionType = 'allOf'\n\n    schema.referenceManager.findOrMakeAdd(dd.schema.ui)\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 21,
+                "un": "make Schema of Response get",
+                "color": "#f0f",
+                "description": "Schema is used in Response get",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.magenta\n\n    schema.referenceManager.findOrMakeAdd(1)\n\n    if (dd.vendor.fieldManager.findField(schema.ui, 'data')) {\n        return schema\n    }\n    const field = dd.factory.makeSchemaField('data', schema)\n    field.refer(dd.schema.ui)\n    field.isArray = true\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 22,
+                "un": "make Schema of Response post",
+                "color": "#f0f",
+                "description": "Schema is used in Response post",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.magenta\n\n    schema.referenceManager.findOrMakeAdd(1)\n\n    if (dd.vendor.fieldManager.findField(schema.ui, 'data')) {\n        return schema\n    }\n    const field = dd.factory.makeSchemaField('data', schema)\n    field.refer(dd.schema.ui)\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 25,
+                "un": "make Schema of Response delete",
+                "color": "#f0f",
+                "description": "Schema is used in Response delete",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.magenta\n\n    schema.referenceManager.findOrMakeAdd(1)\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 26,
+                "un": "make Schema of Response get one",
+                "color": "#f0f",
+                "description": "Schema is used in Response get one",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.magenta\n\n    schema.referenceManager.findOrMakeAdd(1)\n\n    if (dd.vendor.fieldManager.findField(schema.ui, 'data')) {\n        return schema\n    }\n    const field = dd.factory.makeSchemaField('data', schema)\n    field.refer(dd.schema.ui)\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 27,
+                "un": "make Schema of Response patch",
+                "color": "#f0f",
+                "description": "Schema is used in Response patch",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n\n    const schema = dd.vendor.schemaManager.findByUNOrMakeAdd(dd.un)\n    schema.color = dd.color.magenta\n\n    schema.referenceManager.findOrMakeAdd(1)\n\n    if (dd.vendor.fieldManager.findField(schema.ui, 'data')) {\n        return schema\n    }\n    const field = dd.factory.makeSchemaField('data', schema)\n    field.refer(dd.schema.ui)\n\n    return schema\n}",
+                "requireLayer": true,
+                "requireSchema": true
+            },
+            {
+                "ui": 99,
+                "un": "log",
+                "color": "",
+                "description": "",
+                "code": "function run(data) {\n    /** @type {DataForScript} */\n    const dd = data\n    console.log(JSON.stringify(data.project))\n}",
+                "requireLayer": false,
+                "requireSchema": false
+            }
+        ]
+    },
+    "templateManager": {
+        "nextUI": 1,
+        "list": []
+    },
+    "oapi": {
+        "component": {
+            "callbackManager": {
+                "nextUI": 1,
+                "list": []
+            },
+            "exampleManager": {
+                "nextUI": 2,
+                "list": [
+                    {
+                        "ui": 1,
+                        "un": "Response",
+                        "color": "",
+                        "description": "",
+                        "externalValue": "",
+                        "summary": "",
+                        "value": {
+                            "value": {
+                                "code": 0,
+                                "message": "ok"
+                            }
+                        }
+                    }
+                ]
+            },
+            "headerManager": {
+                "nextUI": 3,
+                "list": [
+                    {
+                        "ui": 1,
+                        "un": "X-Rate-Limit",
+                        "color": "",
+                        "description": "",
+                        "allowEmptyValue": false,
+                        "deprecated": false,
+                        "example": "",
+                        "name": "",
+                        "required": true,
+                        "schema": {
+                            "ui": 0,
+                            "un": "X-Rate-Limit",
+                            "description": "",
+                            "format": "int32",
+                            "isArray": false,
+                            "readOnly": false,
+                            "required": true,
+                            "schemaUI": 0,
+                            "_type": "integer",
+                            "writeOnly": false,
+                            "reference": {
+                                "ui": 0,
+                                "type": "schemas"
+                            }
+                        },
+                        "location": "header"
+                    },
+                    {
+                        "ui": 2,
+                        "un": "X-Expires-After",
+                        "color": "",
+                        "description": "",
+                        "allowEmptyValue": false,
+                        "deprecated": false,
+                        "example": "",
+                        "name": "",
+                        "required": true,
+                        "schema": {
+                            "ui": 0,
+                            "un": "X-Expires-After",
+                            "description": "",
+                            "format": "date-time",
+                            "isArray": false,
+                            "readOnly": false,
+                            "required": true,
+                            "schemaUI": 0,
+                            "_type": "string",
+                            "writeOnly": false,
+                            "reference": {
+                                "ui": 0,
+                                "type": "schemas"
+                            }
+                        },
+                        "location": "header"
+                    }
+                ]
+            },
+            "linkManager": {
+                "nextUI": 1,
+                "list": []
+            },
+            "parameterManager": {
+                "nextUI": 5,
+                "list": [
+                    {
+                        "ui": 1,
+                        "un": "id",
+                        "color": "",
+                        "description": "",
+                        "allowEmptyValue": false,
+                        "deprecated": false,
+                        "example": "",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "ui": 0,
+                            "un": "id",
+                            "description": "",
+                            "format": "",
+                            "isArray": false,
+                            "readOnly": false,
+                            "required": true,
+                            "schemaUI": 0,
+                            "_type": "integer",
+                            "writeOnly": false,
+                            "reference": {
+                                "ui": 0,
+                                "type": "schemas"
+                            }
+                        },
+                        "location": "path"
+                    },
+                    {
+                        "ui": 2,
+                        "un": "id-",
+                        "color": "",
+                        "description": "",
+                        "allowEmptyValue": false,
+                        "deprecated": false,
+                        "example": "",
+                        "name": "id",
+                        "required": true,
+                        "schema": {
+                            "ui": 0,
+                            "un": "id-",
+                            "description": "",
+                            "format": "",
+                            "isArray": false,
+                            "readOnly": false,
+                            "required": true,
+                            "schemaUI": 0,
+                            "_type": "integer",
+                            "writeOnly": false,
+                            "reference": {
+                                "ui": 0,
+                                "type": "schemas"
+                            }
+                        },
+                        "location": "query"
+                    },
+                    {
+                        "ui": 3,
+                        "un": "page",
+                        "color": "",
+                        "description": "",
+                        "allowEmptyValue": false,
+                        "deprecated": false,
+                        "example": "",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "ui": 0,
+                            "un": "page",
+                            "description": "",
+                            "format": "",
+                            "isArray": false,
+                            "readOnly": false,
+                            "required": true,
+                            "schemaUI": 0,
+                            "_type": "integer",
+                            "writeOnly": false,
+                            "reference": {
+                                "ui": 0,
+                                "type": "schemas"
+                            }
+                        },
+                        "location": "path"
+                    },
+                    {
+                        "ui": 4,
+                        "un": "page-",
+                        "color": "",
+                        "description": "",
+                        "allowEmptyValue": false,
+                        "deprecated": false,
+                        "example": "",
+                        "name": "page",
+                        "required": true,
+                        "schema": {
+                            "ui": 0,
+                            "un": "page-",
+                            "description": "",
+                            "format": "",
+                            "isArray": false,
+                            "readOnly": false,
+                            "required": true,
+                            "schemaUI": 0,
+                            "_type": "integer",
+                            "writeOnly": false,
+                            "reference": {
+                                "ui": 0,
+                                "type": "schemas"
+                            }
+                        },
+                        "location": "query"
+                    }
+                ]
+            },
+            "requestBodyManager": {
+                "nextUI": 1,
+                "list": []
+            },
+            "responseManager": {
+                "nextUI": 7,
+                "list": [
+                    {
+                        "ui": 1,
+                        "un": "Response",
+                        "color": "",
+                        "description": "",
+                        "headerManager": {
+                            "list": []
+                        },
+                        "linkManager": {
+                            "list": []
+                        },
+                        "mediaTypeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "application/json",
+                                    "example": {
+                                        "value": {}
+                                    },
+                                    "schema": {
+                                        "ui": 1,
+                                        "type": "schemas"
+                                    },
+                                    "exampleManager": {
+                                        "list": [
+                                            {
+                                                "ui": 1,
+                                                "type": "examples"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "ui": 2,
+                        "un": "Response400",
+                        "color": "",
+                        "description": "",
+                        "headerManager": {
+                            "list": []
+                        },
+                        "linkManager": {
+                            "list": []
+                        },
+                        "mediaTypeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "application/json",
+                                    "example": {
+                                        "value": {
+                                            "code": 400,
+                                            "message": "Bad Request"
+                                        }
+                                    },
+                                    "schema": {
+                                        "ui": 1,
+                                        "type": "schemas"
+                                    },
+                                    "exampleManager": {
+                                        "list": []
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "ui": 3,
+                        "un": "Response401",
+                        "color": "",
+                        "description": "",
+                        "headerManager": {
+                            "list": []
+                        },
+                        "linkManager": {
+                            "list": []
+                        },
+                        "mediaTypeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "application/json",
+                                    "example": {
+                                        "value": {
+                                            "code": 401,
+                                            "message": "Unauthorized"
+                                        }
+                                    },
+                                    "schema": {
+                                        "ui": 1,
+                                        "type": "schemas"
+                                    },
+                                    "exampleManager": {
+                                        "list": []
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "ui": 4,
+                        "un": "Response403",
+                        "color": "",
+                        "description": "",
+                        "headerManager": {
+                            "list": []
+                        },
+                        "linkManager": {
+                            "list": []
+                        },
+                        "mediaTypeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "application/json",
+                                    "example": {
+                                        "value": {
+                                            "code": 403,
+                                            "message": "Forbidden"
+                                        }
+                                    },
+                                    "schema": {
+                                        "ui": 1,
+                                        "type": "schemas"
+                                    },
+                                    "exampleManager": {
+                                        "list": []
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "ui": 5,
+                        "un": "Response404",
+                        "color": "",
+                        "description": "",
+                        "headerManager": {
+                            "list": []
+                        },
+                        "linkManager": {
+                            "list": []
+                        },
+                        "mediaTypeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "application/json",
+                                    "example": {
+                                        "value": {
+                                            "code": 404,
+                                            "message": "Not Found"
+                                        }
+                                    },
+                                    "schema": {
+                                        "ui": 1,
+                                        "type": "schemas"
+                                    },
+                                    "exampleManager": {
+                                        "list": []
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "ui": 6,
+                        "un": "Response405",
+                        "color": "",
+                        "description": "",
+                        "headerManager": {
+                            "list": []
+                        },
+                        "linkManager": {
+                            "list": []
+                        },
+                        "mediaTypeManager": {
+                            "nextUI": 2,
+                            "list": [
+                                {
+                                    "ui": 1,
+                                    "un": "application/json",
+                                    "example": {
+                                        "value": {
+                                            "code": 405,
+                                            "message": "Method Not Allowed"
+                                        }
+                                    },
+                                    "schema": {
+                                        "ui": 1,
+                                        "type": "schemas"
+                                    },
+                                    "exampleManager": {
+                                        "list": []
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "schemaManager": {
+                "nextUI": 3,
+                "list": [
+                    {
+                        "ui": 1,
+                        "un": "Response",
+                        "color": "",
+                        "description": "",
+                        "compositionType": "allOf",
+                        "isTemplate": false,
+                        "discriminator": {
+                            "propertyName": "",
+                            "referenceManager": {
+                                "nextUI": 1,
+                                "list": []
+                            }
+                        },
+                        "example": {
+                            "value": {}
+                        },
+                        "excludedManager": {
+                            "list": []
+                        },
+                        "flowManager": {
+                            "list": []
+                        },
+                        "referenceManager": {
+                            "list": []
+                        },
+                        "requiredManager": {
+                            "list": []
+                        },
+                        "text": {
+                            "value": {}
+                        }
+                    },
+                    {
+                        "ui": 2,
+                        "un": "User",
+                        "color": "",
+                        "description": "",
+                        "compositionType": "allOf",
+                        "isTemplate": false,
+                        "discriminator": {
+                            "propertyName": "",
+                            "referenceManager": {
+                                "nextUI": 1,
+                                "list": []
+                            }
+                        },
+                        "example": {
+                            "value": {}
+                        },
+                        "excludedManager": {
+                            "list": []
+                        },
+                        "flowManager": {
+                            "list": []
+                        },
+                        "referenceManager": {
+                            "list": []
+                        },
+                        "requiredManager": {
+                            "list": []
+                        },
+                        "text": {
+                            "value": {}
+                        }
+                    }
+                ]
+            },
+            "securitySchemeManager": {
+                "nextUI": 1,
+                "list": []
+            }
+        },
+        "encodingManager": {
+            "nextUI": 2,
+            "list": [
+                {
+                    "ui": 1,
+                    "un": "image",
+                    "allowReserved": false,
+                    "contentType": "image/*",
+                    "explode": false,
+                    "headerManager": {
+                        "list": []
+                    },
+                    "style": ""
+                }
+            ]
+        },
+        "enumerManager": {
+            "nextUI": 1,
+            "list": []
+        },
+        "externalDocs": {
+            "description": "",
+            "url": ""
+        },
+        "fieldManager": {
+            "nextUI": 8,
+            "list": [
+                {
+                    "ui": 1,
+                    "un": "code",
+                    "description": "",
+                    "format": "",
+                    "isArray": false,
+                    "readOnly": false,
+                    "required": true,
+                    "schemaUI": 1,
+                    "_type": "integer",
+                    "writeOnly": false,
+                    "reference": {
+                        "ui": 0,
+                        "type": "schemas"
+                    }
+                },
+                {
+                    "ui": 2,
+                    "un": "message",
+                    "description": "",
+                    "format": "",
+                    "isArray": false,
+                    "readOnly": false,
+                    "required": true,
+                    "schemaUI": 1,
+                    "_type": "string",
+                    "writeOnly": false,
+                    "reference": {
+                        "ui": 0,
+                        "type": "schemas"
+                    }
+                },
+                {
+                    "ui": 3,
+                    "un": "id",
+                    "description": "",
+                    "format": "",
+                    "isArray": false,
+                    "readOnly": true,
+                    "required": true,
+                    "schemaUI": 2,
+                    "_type": "integer",
+                    "writeOnly": false,
+                    "reference": {
+                        "ui": 0,
+                        "type": "schemas"
+                    }
+                },
+                {
+                    "ui": 4,
+                    "un": "email",
+                    "description": "",
+                    "format": "",
+                    "isArray": false,
+                    "readOnly": false,
+                    "required": true,
+                    "schemaUI": 2,
+                    "_type": "string",
+                    "writeOnly": false,
+                    "reference": {
+                        "ui": 0,
+                        "type": "schemas"
+                    }
+                },
+                {
+                    "ui": 5,
+                    "un": "name",
+                    "description": "",
+                    "format": "",
+                    "isArray": false,
+                    "readOnly": false,
+                    "required": true,
+                    "schemaUI": 2,
+                    "_type": "string",
+                    "writeOnly": false,
+                    "reference": {
+                        "ui": 0,
+                        "type": "schemas"
+                    }
+                },
+                {
+                    "ui": 6,
+                    "un": "password",
+                    "description": "",
+                    "format": "password",
+                    "isArray": false,
+                    "readOnly": false,
+                    "required": true,
+                    "schemaUI": 2,
+                    "_type": "string",
+                    "writeOnly": true,
+                    "reference": {
+                        "ui": 0,
+                        "type": "schemas"
+                    }
+                },
+                {
+                    "ui": 7,
+                    "un": "avatar",
+                    "description": "",
+                    "format": "",
+                    "isArray": false,
+                    "readOnly": false,
+                    "required": true,
+                    "schemaUI": 2,
+                    "_type": "string",
+                    "writeOnly": false,
+                    "reference": {
+                        "ui": 0,
+                        "type": "schemas"
+                    }
+                }
+            ]
+        },
+        "info": {
+            "contact": {
+                "name": "contact",
+                "url": "",
+                "email": ""
+            },
+            "description": "description",
+            "license": {
+                "name": "license",
+                "url": ""
+            },
+            "termsOfService": "",
+            "title": "title",
+            "version": "0.1.0"
+        },
+        "pathManager": {
+            "nextUI": 1,
+            "list": []
+        },
+        "scopeManager": {
+            "nextUI": 1,
+            "list": []
+        },
+        "securityManager": {
+            "list": []
+        },
+        "serverManager": {
+            "nextUI": 2,
+            "list": [
+                {
+                    "ui": 1,
+                    "un": "http://localhost/{version}",
+                    "color": "",
+                    "description": "",
+                    "variableManager": {
+                        "list": [
+                            {
+                                "ui": 1,
+                                "type": "variable"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "serverVariableManager": {
+            "nextUI": 2,
+            "list": [
+                {
+                    "ui": 1,
+                    "un": "version",
+                    "color": "",
+                    "description": "",
+                    "default": "v2",
+                    "valueManager": {
+                        "nextUI": 3,
+                        "list": [
+                            {
+                                "ui": 1,
+                                "un": "v1"
+                            },
+                            {
+                                "ui": 2,
+                                "un": "v2"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "tagManager": {
+            "nextUI": 2,
+            "list": [
+                {
+                    "ui": 1,
+                    "un": "User",
+                    "color": "",
+                    "description": ""
+                }
+            ]
+        }
+    }
+}
