@@ -145,6 +145,7 @@ declare module "Entity/UIItemManagerInterface" {
         add(item: T): void;
         find(ui: number): T | undefined;
         findAll(uixx: number[]): T[];
+        findOrMakeAdd(ui: number): T;
         has(ui: number): boolean;
         load(manager: this): void;
         throwIfFind(ui: number): void;
@@ -157,7 +158,6 @@ declare module "Entity/UniqueItemManagerInterface" {
     import UIItemManagerInterface from "Entity/UIItemManagerInterface";
     import UniqueItemInterface from "Entity/UniqueItemInterface";
     export default interface UniqueItemManagerInterface<T extends UniqueItemInterface = UniqueItemInterface> extends UIItemManagerInterface<T> {
-        readonly unique: boolean;
         add(item: T): void;
         arrayToOAPI(list: T[], finder: ReferenceFinderInterface): ObjectMap<any>;
         changeUN(item: T, un: string): void;
@@ -550,7 +550,7 @@ declare module "OAPI/SchemaField" {
         toOAPI(finder: ReferenceFinderInterface): OAPISchemaField | OAPIReference;
     }
     export class SchemaFieldManager extends UniqueItemManager<SchemaField> {
-        constructor(unique?: boolean);
+        constructor();
         changeUN(item: SchemaField, un: string): void;
         findAllField(schemaUI: number): SchemaField[];
         findField(schemaUI: number, un: string): SchemaField | undefined;
@@ -1368,15 +1368,12 @@ declare module "Service/Text" {
     export default Text;
 }
 declare module "Entity/UniqueItemManager" {
-    import Newable from "Entity/Newable";
     import ObjectMap from "Entity/ObjectMap";
     import ReferenceFinderInterface from "Entity/ReferenceFinderInterface";
     import UIItemManager from "Entity/UIItemManager";
     import UniqueItemInterface from "Entity/UniqueItemInterface";
     import UniqueItemManagerInterface from "Entity/UniqueItemManagerInterface";
     export default class UniqueItemManager<T extends UniqueItemInterface = UniqueItemInterface> extends UIItemManager<T> implements UniqueItemManagerInterface {
-        readonly unique: boolean;
-        constructor(type: Newable<T>, unique?: boolean);
         add(item: T): void;
         static arrayToOAPI<T extends UniqueItemInterface = UniqueItemInterface>(list: T[], finder: ReferenceFinderInterface): ObjectMap<any>;
         arrayToOAPI(list: T[], finder: ReferenceFinderInterface): ObjectMap<any>;
@@ -1654,14 +1651,11 @@ declare module "Service/Load" {
     }
 }
 declare module "Service/MakeDiagram" {
-    import { Edge, Node } from '@antv/x6';
+    import { Graph } from '@antv/x6';
     import LayerPath from "Entity/LayerPath";
     import Schema from "OAPI/Schema";
     import ReferenceFinder from "Service/ReferenceFinder";
-    export default function MakeDiagram(layer: LayerPath, schema: Schema, finder: ReferenceFinder): {
-        edges: Edge<Edge.Properties>[];
-        nodes: Node<Node.Properties>[];
-    };
+    export default function MakeDiagram(graph: Graph, layer: LayerPath, schema: Schema, finder: ReferenceFinder): void;
 }
 declare module "Service/MakeFlow" {
     import Schema from "OAPI/Schema";
